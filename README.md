@@ -12,7 +12,7 @@
 
 源码已打入jar包
 
-##如何使用
+## 如何使用
 1、下载`Compress.jar`包
 
 2、maven手动安装jar
