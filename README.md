@@ -25,7 +25,7 @@
 
     compress.setPic_log_location("/log.pic");  //指定log.pic路径  可选配置 默认为项目根路径 如/work/{project}/log.pic 或 /work/{project}/log.pic
 
-    compress.compress("E:/upan/test", "E:/upan/test_bak", 3);//压缩调用  第一个参数为要压缩的目录  第二个参数为 压缩输出目录 第三个参数 启动的线程数
+    compress.compress("E:/upan/test", "E:/upan/test_bak", 3);//压缩调用  第一个参数为要压缩的目录  第二个参数为 压缩输出目录 第三个参数 启动的线程数 第三个参数可选 默认CPU核心数
 3、程序调用jar示例一
 
 建议指定绝对路径
