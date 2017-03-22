@@ -87,15 +87,6 @@ public class Provider implements Callable{
 	}
 
 	/**
-	 * Gets log list.
-	 *
-	 * @return the log list
-	 */
-	public static LinkedList<String> getLogList() {
-		return logList;
-	}
-
-	/**
 	 * Sets log list.
 	 *
 	 * @param logList the log list

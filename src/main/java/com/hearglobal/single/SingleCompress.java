@@ -26,9 +26,9 @@ import java.util.LinkedList;
  *                       两者可以是相同文件路径 意味着A图片压缩后会替换B图片
  *
  */
-public class Compress{
+public class SingleCompress {
 
-    private static final Logger LOGGER = Logger.getLogger(Compress.class);
+    private static final Logger LOGGER = Logger.getLogger(SingleCompress.class);
     private final LinkedList<String> API_key = new LinkedList<String>();
     private static boolean flag = true;
     private int key_no = 0;
@@ -47,7 +47,7 @@ public class Compress{
     public void getAPI_keyFromProperties () throws IOException {
         //在window中 并且在IDE中运行的时候/api_key.properties  和 api_key.properties 都是target 的classes路径下
         //但是在控制台窗口中却没有尝试出相对路径可行
-        InputStreamReader isr=new InputStreamReader(Compress.class.getResourceAsStream("/api_key.properties"), "UTF-8");
+        InputStreamReader isr=new InputStreamReader(SingleCompress.class.getResourceAsStream("/META-INF/api_key.properties"), "UTF-8");
 
         //在IDE中 能够获取target下的配置文件
         //但是在控制台窗口中能够获取项目的根目录下面的配置文件
