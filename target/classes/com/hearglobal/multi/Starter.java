@@ -3,10 +3,7 @@ package com.hearglobal.multi;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.*;
@@ -33,6 +30,10 @@ public class Starter {
 
     private static LinkedList<String> logList = new LinkedList<>() ;
 
+    private static String api_key_location = "api_key.properties";
+
+    private static String pic_log_location = "log.pic";
+
     private static String src;
 
     private static String dest;
@@ -47,7 +48,6 @@ public class Starter {
      * @param args the args
      */
     public static void main(String[] args){
-        start = System.currentTimeMillis();
         String src = args[0];
         String dest = args[1];
         threshold = args.length < 3 || args[2] == null || args[2].equals("") ? coreNumber : Integer.parseInt(args[2]);
@@ -68,6 +68,7 @@ public class Starter {
      * @throws Exception the exception
      */
     public void compress(String src, String dest, int threshold) throws Exception {
+        start = System.currentTimeMillis();
         if(!this.checkParam(src, dest)) {
             throw  new IllegalArgumentException("参数不正确！");
         }
@@ -103,15 +104,16 @@ public class Starter {
                 c.setAPI_key(API_key);
                 cachePool.execute(c);
             }
-
+            System.out.println(start + "start");
             //启动持久化消息线程工作 消费writeQueue
-            Persist pressit =  new Persist(writeQueue, start);
-            pressit.start();
+            Persist perssit =  new Persist(writeQueue, start);
+            perssit.setPic_log_location(pic_log_location);
+            perssit.start();
 
             cachePool.shutdown();
             while(true) {
                 if(cachePool.isTerminated()) {
-                    pressit.setRunning(false);
+                    perssit.setRunning(false);
                     LOGGER.info("compress has finished !");
                     break;
                 }
@@ -129,7 +131,7 @@ public class Starter {
      * @param dest the dest
      * @return the boolean
      */
-    public boolean checkParam(String src, String dest) {
+    private boolean checkParam(String src, String dest) {
       if(src == null || dest == null || src.equals("") || dest.equals("")) {
           LOGGER.error("参数为空！");
           return false;
@@ -152,15 +154,13 @@ public class Starter {
         }
     }
 
-    public void initConsumer() {
-
+    private void initConsumer() {
         String line = "";
-
         try {
             //BufferedReader buff = new BufferedReader(new FileReader("E:\\workplace\\tinypngThread\\target\\api_key.properties"));
-            BufferedReader buff = new BufferedReader(new FileReader("api_key.properties"));
-            while ((line=buff.readLine())!=null) {
-                System.out.println("API_key => " + line);
+            BufferedReader buff = new BufferedReader(new FileReader(api_key_location));
+            while ((line=buff.readLine()) != null) {
+                LOGGER.info("API_key => {} ",line);
                 API_key.add(line);
             }
 
@@ -176,13 +176,13 @@ public class Starter {
      *
      * @throws IOException the io exception
      */
-    public static void initProvider() throws IOException {
+    private static void initProvider() throws IOException {
         LOGGER.info("Provider initProvider invoked");
-        File file = new File("log.pic");
+        File file = new File(pic_log_location);
         if(!file.exists()) {
             file.createNewFile();
         }
-        FileReader reader = new FileReader("log.pic");
+        FileReader reader = new FileReader(pic_log_location);
         BufferedReader br = new BufferedReader(reader);
         String str;
         while((str = br.readLine()) != null) {
@@ -190,4 +190,22 @@ public class Starter {
         }
     }
 
+    /**
+     * Sets api key location.
+     *
+     * @param api_key_location the api key location
+     */
+    public static void setApi_key_location(String api_key_location) {
+        Starter.api_key_location = api_key_location;
+    }
+
+
+    /**
+     * Sets pic log location.
+     *
+     * @param pic_log_location the pic log location
+     */
+    public static void setPic_log_location(String pic_log_location) {
+        Starter.pic_log_location = pic_log_location;
+    }
 }

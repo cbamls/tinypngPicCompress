@@ -3,6 +3,7 @@ package com.hearglobal.multi;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.LinkedList;
@@ -27,6 +28,8 @@ public class Persist extends Thread {
     private BlockingQueue<String> writeQueue;
 
     private boolean isRunning = true;
+
+    private static String pic_log_location = "log.pic";
 
     private long start;
 
@@ -54,7 +57,7 @@ public class Persist extends Thread {
                 doPersist(list);
             }
             LOGGER.info("Persist thread work finished");
-            LOGGER.info("耗时: {} ms",start - System.currentTimeMillis());
+            LOGGER.info("耗时: {} ms",System.currentTimeMillis() - start);
 
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -64,7 +67,7 @@ public class Persist extends Thread {
     }
 
     private void doPersist(List<String> messageIds) throws IOException {
-        FileWriter writer = new FileWriter("log.pic", true);
+        FileWriter writer = new FileWriter(pic_log_location, true);
         for(String str : messageIds) {
             writer.write(str + "\n");
         }
@@ -91,5 +94,9 @@ public class Persist extends Thread {
     //persist线程终止的条件是 所有消费线程已停止 && 当前 已消费消息队列为空
     private boolean shouldStop() {
         return isRunning == false && writeQueue.size() == 0;
+    }
+
+    public static void setPic_log_location(String pic_log_location) {
+        Persist.pic_log_location = pic_log_location;
     }
 }

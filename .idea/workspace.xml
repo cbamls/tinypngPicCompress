@@ -15,8 +15,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/dfs_tinypng_jar/okio-1.6.0.jar" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/dfs_tinypng_jar/tinify-1.3.1.jar" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/pic.pic" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/hearglobal/single/Test.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/api_key.properties" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/api_key.properties" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/hearglobal/single/Compress.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/hearglobal/single/Compress.java" afterPath="" />
@@ -32,15 +30,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dfs_tinypng.iml" afterPath="$PROJECT_DIR$/dfs_tinypng.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/hearglobal/multi/Persist.java" afterPath="$PROJECT_DIR$/src/main/java/com/hearglobal/multi/Persist.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/hearglobal/multi/Provider.java" afterPath="$PROJECT_DIR$/src/main/java/com/hearglobal/multi/Provider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/hearglobal/multi/Starter.java" afterPath="$PROJECT_DIR$/src/main/java/com/hearglobal/multi/Starter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/Test.java" afterPath="$PROJECT_DIR$/src/test/java/Test.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/hearglobal/multi/Persist.java" afterPath="$PROJECT_DIR$/target/classes/com/hearglobal/multi/Persist.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/hearglobal/multi/Provider.java" afterPath="$PROJECT_DIR$/target/classes/com/hearglobal/multi/Provider.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/hearglobal/multi/Starter.java" afterPath="$PROJECT_DIR$/target/classes/com/hearglobal/multi/Starter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/hearglobal/single/Compress.java" afterPath="$PROJECT_DIR$/src/main/java/com/hearglobal/single/SingleCompress.java" />
     </list>
     <ignored path="tinypngThread.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1133,8 +1126,16 @@
       <workItem from="1483711022107" duration="1850000" />
       <workItem from="1489661422006" duration="2479000" />
       <workItem from="1490061943686" duration="5869000" />
-      <workItem from="1490068706527" duration="44196000" />
+      <workItem from="1490068706527" duration="44303000" />
     </task>
+    <task id="LOCAL-00001" summary="init">
+      <created>1490187843942</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1490187843942</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1170,7 +1171,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118303000" />
+    <option name="totallyTimeSpent" value="118410000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1217,6 +1218,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
